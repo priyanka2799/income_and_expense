@@ -1,38 +1,66 @@
 .App {
   text-align: center;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  height: 100%;
+  padding: 20px;
+
+  background: #dfdeba; /* fallback for old browsers */
+  background: linear-gradient(to left, hsl(278, 77%, 22%), hsl(283, 95%, 7%));
+
+  color: #ffdffc;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.headline{
+  font-size: 48px;
+  font-weight: 300;
+  letter-spacing: 2px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.item {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-bottom: 5px;
+}
+.item > span {
+  padding: 5px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.App-link {
-  color: #61dafb;
+.item > span > a {
+  color: inherit;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-add {
+  background: rgb(126, 199, 126);
+  
+  padding: 2px;
+  cursor: pointer;
+
+  transition: all 0.1s ease-in;
+}
+
+.button:hover {
+  
+  color: #ffffff;
+}
+
+.button-dismiss {
+  background: rgb(170, 0, 0);
+  
+  padding: 1px;
+  cursor: pointer;
+
+  transition: all 0.1s ease-in;
+}
+
+.add-form {
+  padding: 10px 0 20px 0;
+  display: flex;
+  align-items: baseline;
+  text-align: center;
 }

@@ -46,20 +46,24 @@ const App = () => {
     }
 
     return (
-      <div >
-        <div>Expense Card</div>
-        <div>
-          Amount ${totalAmount}
+      <div className='container'>
+        <h1 className='headline'>Expense Card</h1>
+        <div className='values-container'>
+          <div>
+            Amount ${totalAmount}
+          </div>
           <div>
             Income ${positiveCurrency}
+          </div>
+          <div>
             Expenditure ${negativeCurrency}
           </div>
-          <div>
-            <SearchBox handleList = {handleList}/>
-          </div>
-          <div>
-            <ListDisplay list = {List} onRemoveItem = {handleRemoveItem}/>
-          </div>
+        </div>
+        <div className='add-to-list'>
+          <SearchBox handleList = {handleList}/>
+        </div>
+        <div>
+          <ListDisplay list = {List} onRemoveItem = {handleRemoveItem}/>
         </div>
       </div>
     ); 
@@ -67,14 +71,22 @@ const App = () => {
 
 const SearchBox = ({handleList}) => {
   return(
-    <form>
-      <label htmlFor ="amount">cost</label>
-      <input id = "amount" type = "number"/> 
-      <label htmlFor = 'description'>
-        Description:
-      </label>
-      <input id='description' />
-      <button onClick = {(event) => handleList(document.getElementById("amount").value,document.getElementById("description").value )(event)}> Add</button>
+    <form >
+      <div>
+        <label className='label' htmlFor ="amount">
+          cost :
+        </label>
+        <input className='input' id = "amount" type = "number"/> 
+      </div>
+      <div>
+        <label className='label' htmlFor = 'description'>
+          Description :
+        </label>
+        <input className='input' id='description' />
+      </div>
+      
+      
+      <button className='button button-add' onClick = {(event) => handleList(document.getElementById("amount").value,document.getElementById("description").value )(event)}> Add</button>
     </form>
   );
 }
@@ -83,11 +95,11 @@ const ListDisplay = ({list, onRemoveItem}) => (
   <div>
     {console.log(list)}
     {list.map(item=>( 
-        <div key={item.description}>
-          <span>{item.amount}</span>      
-          <span>{item.description}</span>
-          <span >
-            <button type="button" onClick = {() => {onRemoveItem(item.description, item.amount)}}>
+        <div className='item' key={item.description}>
+          <span style={{width:'30%'}}>${item.amount}/-</span>      
+          <span style={{width:'50%'}}>{item.description}</span>
+          <span style={{width:'20%'}}>
+            <button className='button button-dismiss' type="button" onClick = {() => {onRemoveItem(item.description, item.amount)}}>
               Dismiss
             </button>
           </span>
